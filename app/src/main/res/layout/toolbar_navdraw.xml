@@ -24,7 +24,7 @@
         android:text="FBU MORSE CONVERTER"
         android:textSize="20sp"
         android:layout_marginStart="12dp"
-        android:textColor="@color/white"
+        android:textColor="@color/laci"
         android:textStyle="bold"
         />
 </LinearLayout>
