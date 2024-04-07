@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/app_bar_search"
+        android:icon="@drawable/smile"
+        android:title="Search"
+        app:actionViewClass="android.widget.SearchView"></item>
+    <item
+        android:id="@+id/app_bar_switch"
+        android:title="Switch"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/about_us"
+        android:icon="@drawable/baseline_account_circle_24"
+        android:title="Hakkımızda"
+        android:visible="true" />
+    <item android:title="Item" />
+    <item
+        android:title="Çıkış"
+        android:id="@+id/exit"
+        android:icon="@drawable/whatsapp" />
+</menu>
