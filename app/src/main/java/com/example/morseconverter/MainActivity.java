@@ -1,5 +1,7 @@
 package com.example.morseconverter;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.net.http.HeaderBlock;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
@@ -9,6 +11,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.activity.OnBackPressedCallback;
@@ -24,7 +28,9 @@ import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
     //------------------------
-
+        DrawerLayout drawerLayout;
+        ImageView menu;
+        LinearLayout home, settings, share, about, logout;
 
     //------------------------
 
@@ -42,6 +48,57 @@ public class MainActivity extends AppCompatActivity {
         //---------------
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        //---------------
+        drawerLayout = findViewById(R.id.drawerLayout);
+        menu = findViewById(R.id.menu);
+        about = findViewById(R.id.about1);
+        home = findViewById(R.id.home1);
+        logout = findViewById(R.id.logout);
+        settings = findViewById(R.id.settings1);
+        share = findViewById(R.id.share1);
+
+
+        menu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openDrawer(drawerLayout);
+            }
+        });
+
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                recreate();
+            }
+        });
+
+        settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                redirectActivity(MainActivity.this,SettingsActivity.class);
+            }
+        });
+
+        share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                redirectActivity(MainActivity.this,ShareActivity.class);
+            }
+        });
+
+        about.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                redirectActivity(MainActivity.this,AboutActivity.class);
+            }
+        });
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "logout", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         //---------------
         // Assign variables
@@ -311,6 +368,31 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    //-----------------------
+
+    public static void openDrawer(DrawerLayout drawerLayout){
+        drawerLayout.openDrawer(GravityCompat.START);
+    }
+    public static void closeDrawer(DrawerLayout drawerLayout)
+    {
+        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }
+    }
+
+    public static void redirectActivity(Activity activity, Class secondActivity)
+    {
+        Intent intent = new Intent(activity,secondActivity);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        activity.startActivity(intent);
+        activity.finish();
+    }
+
+    @Override
+    protected void onPause(){
+        super.onPause();
+        closeDrawer(drawerLayout);
+    }
     //-----------------------
 
 }

@@ -114,6 +114,45 @@
 
     </RelativeLayout>
 
+    <!-- Hamburger Menu / NavigationDrawer -->
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:id="@+id/drawerLayout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <include
+                layout="@layout/toolbar_navdraw"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Home"
+                android:layout_gravity="center"
+                android:layout_marginTop="400dp"
+                android:textColor="@color/lavender"
+                android:textSize="36sp"/>
+
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="300dp"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:layout_gravity="start">
+
+            <include
+                layout="@layout/nav_drawer"/>
+
+        </RelativeLayout>
+
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+
     <!-- Toolbar -->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -129,6 +168,8 @@
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:title="Toolbar"
         app:titleMarginStart="25dp" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
