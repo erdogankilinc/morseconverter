@@ -10,8 +10,13 @@
     tools:context=".MainActivity">
 
 
+<<<<<<< Updated upstream
     <!-- Ana içerik -->
     <RelativeLayout
+=======
+    <!-- Main Content -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+>>>>>>> Stashed changes
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -36,6 +41,7 @@
                 android:textStyle="bold" />
 
             <!--edit text to accept the input from the user-->
+
 
             <EditText
                 android:id="@+id/etinput"
@@ -109,6 +115,16 @@
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold" />
+
+            <!-- Nav Drawer acikken butonlara basildiginda arkadaki textViewlar
+             calisabiliyordu onlarin calismasini engellemek icin yapildi -->
+            <View
+                android:id="@+id/overlayView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#80000000"
+                android:visibility="gone"
+                />
 
         </RelativeLayout>
 

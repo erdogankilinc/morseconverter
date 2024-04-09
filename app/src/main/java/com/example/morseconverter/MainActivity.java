@@ -2,6 +2,7 @@ package com.example.morseconverter;
 
 import android.net.http.HeaderBlock;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.preference.PreferenceActivity;
 import android.view.Gravity;
 import android.view.Menu;
@@ -10,7 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
+import android.app.Service;
 import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -19,8 +20,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-
+import android.content.Intent;
 import com.google.android.material.navigation.NavigationView;
+import android.media.MediaPlayer;
+import android.os.IBinder;
+import android.provider.Settings;
+import androidx.annotation.Nullable;
 
 public class MainActivity extends AppCompatActivity {
     //------------------------
@@ -34,14 +39,97 @@ public class MainActivity extends AppCompatActivity {
 
     //---------
 
+    // Servis denemesi
+
+
     //---------
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //---------------
+
+        //---------------
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+<<<<<<< Updated upstream
+=======
+        //---------------
+        drawerLayout = findViewById(R.id.drawerLayout);
+        menu = findViewById(R.id.menu);
+        about = findViewById(R.id.about1);
+        home = findViewById(R.id.home1);
+        logout = findViewById(R.id.logout);
+        settings = findViewById(R.id.settings1);
+        share = findViewById(R.id.share1);
+        //------------------
+        // deneme yapıyoruz
+        View overlayView;
+        overlayView = findViewById(R.id.overlayView);
+        //------------------
+
+        menu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                openDrawer(drawerLayout);
+                // Overlay view'i görünür yap
+                overlayView.setVisibility(View.VISIBLE);
+            }
+        });
+
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                recreate();
+            }
+        });
+
+        settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                redirectActivity(MainActivity.this,SettingsActivity.class);
+            }
+        });
+
+        share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                redirectActivity(MainActivity.this,ShareActivity.class);
+            }
+        });
+
+        about.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                redirectActivity(MainActivity.this,AboutActivity.class);
+            }
+        });
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "logout", Toast.LENGTH_SHORT).show();
+            }
+        });
+        //---------------
+        // overlayView için devam bölümü
+        // Overlay view'e tıklanmasını engelleyen listener
+        overlayView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Hiçbir şey yapma
+            }
+        });
+        drawerLayout.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
+            @Override
+            public void onDrawerClosed(View drawerView) {
+                super.onDrawerClosed(drawerView);
+                // Overlay view'i gizle
+                overlayView.setVisibility(View.GONE);
+            }
+        });
+>>>>>>> Stashed changes
 
         //---------------
         // Assign variables
@@ -287,6 +375,13 @@ public class MainActivity extends AppCompatActivity {
     //------------------------
     // Outside OnCreate
 
+    //------------------------
+    // Service
+
+
+
+    //------------------------
+    // NavDrawer
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.toolbar_menu,menu);
