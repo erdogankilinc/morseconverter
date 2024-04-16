@@ -32,6 +32,10 @@ public class MainActivity extends AppCompatActivity {
         ImageView menu;
         LinearLayout home, settings, share, about, logout;
 
+        // overlayView
+        View overlayView;
+
+
     //------------------------
 
     // initialize variables
@@ -57,11 +61,31 @@ public class MainActivity extends AppCompatActivity {
         settings = findViewById(R.id.settings1);
         share = findViewById(R.id.share1);
 
+        overlayView = findViewById(R.id.overlayView);
 
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // DrawerLayout'ı aç
                 openDrawer(drawerLayout);
+                // Overlay view'i görünür yap
+                overlayView.setVisibility(View.VISIBLE);
+            }
+        });
+        // Overlay view'e tıklanmasını engelleyen listener
+        overlayView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Hiçbir şey yapma
+            }
+        });
+        // Navigation drawer kapatıldığında overlay view'i kaldır
+        drawerLayout.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
+            @Override
+            public void onDrawerClosed(View drawerView) {
+                super.onDrawerClosed(drawerView);
+                // Overlay view'i gizle
+                overlayView.setVisibility(View.GONE);
             }
         });
 
@@ -100,6 +124,22 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Overlay view'e tıklanmasını engelleyen listener
+        overlayView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Hiçbir şey yapma
+            }
+        });
+        // Navigation drawer kapatıldığında overlay view'i kaldır
+        drawerLayout.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
+            @Override
+            public void onDrawerClosed(View drawerView) {
+                super.onDrawerClosed(drawerView);
+                // Overlay view'i gizle
+                overlayView.setVisibility(View.GONE);
+            }
+        });
         //---------------
         // Assign variables
         etinput = findViewById(R.id.etinput);
