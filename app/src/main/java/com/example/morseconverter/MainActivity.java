@@ -43,7 +43,8 @@ public class MainActivity extends AppCompatActivity {
     Button btnEncode, btnDecode, btnclear;
 
     //---------
-
+    // Servis Denemesi
+    Button startButton, stopButton;
     //---------
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +63,35 @@ public class MainActivity extends AppCompatActivity {
         share = findViewById(R.id.share1);
 
         overlayView = findViewById(R.id.overlayView);
+
+        //---------------
+        //Servis degiskenleri ve fonksiyonları
+        startButton = findViewById(R.id.servisStart);
+        stopButton = findViewById(R.id.servisStop);
+
+        startButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(v == startButton){
+
+                    // starting the service
+                    startService(new Intent(MainActivity.this, NewService.class ) );
+                }
+            }
+        });
+
+        stopButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (v == stopButton){
+
+                    // stopping the service
+                    stopService(new Intent( MainActivity.this, NewService.class ) );
+                }
+            }
+        });
+        
+        //---------------
 
         menu.setOnClickListener(new View.OnClickListener() {
             @Override

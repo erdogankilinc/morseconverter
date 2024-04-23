@@ -121,7 +121,7 @@
 
     </LinearLayout>
 
-    <!-- 2. Part Border-->
+    <!-- 2. Part Servis-->
     <View
     android:layout_width="match_parent"
     android:layout_height="1dp"
@@ -129,22 +129,63 @@
     android:background="@color/lavender"/>
 
     <LinearLayout
+        android:id="@+id/servis"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/logout"
-        android:layout_marginStart="12dp"
         android:layout_marginTop="12dp"
-        android:orientation="horizontal">
+        android:layout_marginStart="12dp"
+        android:orientation="vertical">
 
-        <TextView
+        <Button
+            android:id="@+id/servisStart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/lavender"
-            android:text="Log Out"
-            android:textSize="20sp"
-            android:drawableLeft="@drawable/baseline_exit_to_app_24"
-            android:drawablePadding="8dp"/>
+            android:layout_marginEnd="12dp"
+            android:background="@drawable/mybutton"
+            android:text="Start Service"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/servisStop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/mybutton"
+            android:text="Stop Service"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+        </LinearLayout>
+
+
+        <!-- 3. Part Log Out -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/lavender" />
+
+        <LinearLayout
+            android:id="@+id/logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/baseline_exit_to_app_24"
+                android:drawablePadding="8dp"
+                android:text="Log Out"
+                android:textColor="@color/lavender"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
 
     </LinearLayout>
-    
-</LinearLayout>
