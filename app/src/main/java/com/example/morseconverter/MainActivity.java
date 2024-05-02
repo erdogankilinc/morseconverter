@@ -43,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
     Button btnEncode, btnDecode, btnclear;
 
     //---------
-    // Servis Denemesi
     Button startButton, stopButton;
     //---------
     @Override
@@ -65,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         overlayView = findViewById(R.id.overlayView);
 
         //---------------
-        //Servis degiskenleri ve fonksiyonları
+        // service variables and functions
         startButton = findViewById(R.id.servisStart);
         stopButton = findViewById(R.id.servisStop);
 
@@ -90,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-        
+
         //---------------
 
         menu.setOnClickListener(new View.OnClickListener() {
@@ -102,19 +101,19 @@ public class MainActivity extends AppCompatActivity {
                 overlayView.setVisibility(View.VISIBLE);
             }
         });
-        // Overlay view'e tıklanmasını engelleyen listener
+        // a overlay to prevent clicking on the view
         overlayView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Hiçbir şey yapma
+                // pass
             }
         });
-        // Navigation drawer kapatıldığında overlay view'i kaldır
+        // set visible overlay view when navigation drawer is closed
         drawerLayout.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
             @Override
             public void onDrawerClosed(View drawerView) {
                 super.onDrawerClosed(drawerView);
-                // Overlay view'i gizle
+
                 overlayView.setVisibility(View.GONE);
             }
         });
@@ -154,22 +153,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // Overlay view'e tıklanmasını engelleyen listener
-        overlayView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Hiçbir şey yapma
-            }
-        });
-        // Navigation drawer kapatıldığında overlay view'i kaldır
-        drawerLayout.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
-            @Override
-            public void onDrawerClosed(View drawerView) {
-                super.onDrawerClosed(drawerView);
-                // Overlay view'i gizle
-                overlayView.setVisibility(View.GONE);
-            }
-        });
         //---------------
         // Assign variables
         etinput = findViewById(R.id.etinput);
