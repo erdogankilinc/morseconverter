@@ -4,4 +4,10 @@
     <color name="white">#FFFFFFFF</color>
     <color name="laci">#000FFF</color>
     <color name="yesil">#009B02</color>
+    <color name="purple200">#FFBB86FC</color>
+    <color name="purple500">#FF6200EE</color>
+    <color name="purple700">#FF3700B3</color>
+    <color name="teal200">#FF03DAC5</color>
+    <color name="teal700">#FF018768</color>
+    <color name="lavender">#8692f7</color>
 </resources>
